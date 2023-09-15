@@ -4,64 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikasi Web Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        p {
+            color: #555;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        h2 {
+            color: #333;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        form {
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: yellow;
+            color: #333;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* Animasi */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotate {
+            animation: rotate 2s linear infinite;
+        }
+    </style>
 </head>
-    <body>
-        <div class="container">
-            <h1>
-                Selamat datang di aplikasi web sederhana kami!
-            </h1>
-            <p>
-                Ini adalah contoh teks yang menunjukkan bagaimana aplikasi web sederhana ini bekerja.
-            </p>
-            <h2>
-                Formulir Kontak
-            </h2>
-            <form action="#" method="post">
-                <label for="name">Nama:</label><br>
-                <input type="text" id="name" name="name"><br><br>
-            
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email"><br><br>
+<body>
+    <div class="container">
+        <h1 class="fadeIn">
+            Selamat datang di aplikasi web sederhana kami!
+        </h1>
+        <p class="fadeIn">
+            Ini adalah contoh teks yang menunjukkan bagaimana aplikasi web sederhana ini bekerja.
+        </p>
+        <h2 class="fadeIn">
+            Formulir Kontak
+        </h2>
+        <form action="#" method="post" class="fadeIn">
+            <label for="name">Nama:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+        
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
 
-                <label for="message">Pesan:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+            <label for="message">Pesan:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
 
-                <input type="submit" value="Kirim">
+            <input type="submit" value="Kirim" class="rotate">
+        </form>
 
-                <form action="upload.php" method="post" enctype="multipart/form-data"> <br><br>
-                    <label for="file">Pilih file data diri:</label>
-                    <input type="file" id="file" name="file"><br><br>
-                    <input type="submit" value="Upload"><br><br>
-            </form> 
-        </div>
-        <table border="1">
-            <tr>
-                <th colspan="3" bgcolor="yellow">Data Diri Pembuat Web</th>
-            </tr>
-            <tr>
-                <td rowspan="4">
-                    <img src="Gilangg.jpeg" />  
-                </td>
-            </tr>
-            <tr>
-                <td>Nama</td>
-                <td>Gilang Kista Ramadhan</td>
-            </tr>
-            <tr>
-                <td>Value</td>
-                <td>Rp 20.000.000</td>
-            </tr>
-            <tr>
-                <td>Spesifikasi</td>
-                <td>
-                    <ul>
-                        <li>Lumayan Ganteng</li>
-                        <li>Baik hati dan suka menabung</li>
-                        <li>Alhamdulillah loyal dan royal</li>
-                        <li>Cita-cita masuk surga</li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
-    </body>
+        <form action="upload.php" method="post" enctype="multipart/form-data" class="fadeIn">
+            <label for="file">Pilih file data diri:</label>
+            <input type="file" id="file" name="file"><br><br>
+            <input type="submit" value="Upload" class="rotate"><br><br>
+        </form>
+    </div>
+    <table border="1" class="fadeIn">
+        <tr>
+            <th colspan="3" bgcolor="yellow">Data Diri Pembuat Web</th>
+        </tr>
+        <tr>
+            <td rowspan="4">
+                <img src="Gilangg.jpeg" alt="Foto Profil" />  
+            </td>
+        </tr>
+        <tr>
+            <td>Nama</td>
+            <td>Gilang Kista Ramadhan</td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>Rp 20.000.000</td>
+        </tr>
+        <tr>
+            <td>Spesifikasi</td>
+            <td>
+                <ul>
+                    <li>Lumayan Ganteng</li>
+                    <li>Baik hati dan suka menabung</li>
+                    <li>Alhamdulillah loyal dan royal</li>
+                    <li>Cita-cita masuk surga</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</body>
 </html>
