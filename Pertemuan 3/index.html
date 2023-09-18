@@ -34,24 +34,24 @@
       }
 
       function kurang() {
-        var angka1 = parseFloat(document.getElementById("input1").value);
-        var angka2 = parseFloat(document.getElementById("input2").value);
-        var hasil = angka1 - angka2;
+        let angka1 = parseFloat(document.getElementById("input1").value);
+        let angka2 = parseFloat(document.getElementById("input2").value);
+        let hasil = angka1 - angka2;
         document.getElementById("hasil").textContent = hasil;
       }
 
       function kali() {
-        var angka1 = parseFloat(document.getElementById("input1").value);
-        var angka2 = parseFloat(document.getElementById("input2").value);
-        var hasil = angka1 * angka2;
+        let angka1 = parseFloat(document.getElementById("input1").value);
+        let angka2 = parseFloat(document.getElementById("input2").value);
+        let hasil = angka1 * angka2;
         document.getElementById("hasil").textContent = hasil;
       }
 
       function bagi() {
-        var angka1 = parseFloat(document.getElementById("input1").value);
-        var angka2 = parseFloat(document.getElementById("input2").value);
+        let angka1 = parseFloat(document.getElementById("input1").value);
+        let angka2 = parseFloat(document.getElementById("input2").value);
         if (angka2 !== 0) {
-          var hasil = angka1 / angka2;
+          let hasil = angka1 / angka2;
           document.getElementById("hasil").textContent = hasil;
         } else {
           document.getElementById("hasil").textContent =
