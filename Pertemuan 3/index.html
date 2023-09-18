@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KALKULATOR</title>
+    <style>
+      input[type="text"] {
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kalkulator Sederhana</h1>
+    <label for="input1">Angka 1:</label>
+    <input type="text" id="input1" placeholder="Masukkan angka pertama" />
+    <br />
+    <label for="input2">Angka 2:</label>
+    <input type="text" id="input2" placeholder="Masukkan angka kedua" />
+    <br />
+    <button onclick="tambah()">+</button>
+    <button onclick="kurang()">-</button>
+    <button onclick="kali()">x</button>
+    <button onclick="bagi()">/</button>
+    <br />
+    <p>Hasil: <span id="hasil">-</span></p>
+
+    <script>
+      function tambah() {
+        let angka1 = parseFloat(document.getElementById("input1").value);
+        let angka2 = parseFloat(document.getElementById("input2").value);
+        let hasil = angka1 + angka2;
+        document.getElementById("hasil").textContent = hasil;
+      }
+
+      function kurang() {
+        var angka1 = parseFloat(document.getElementById("input1").value);
+        var angka2 = parseFloat(document.getElementById("input2").value);
+        var hasil = angka1 - angka2;
+        document.getElementById("hasil").textContent = hasil;
+      }
+
+      function kali() {
+        var angka1 = parseFloat(document.getElementById("input1").value);
+        var angka2 = parseFloat(document.getElementById("input2").value);
+        var hasil = angka1 * angka2;
+        document.getElementById("hasil").textContent = hasil;
+      }
+
+      function bagi() {
+        var angka1 = parseFloat(document.getElementById("input1").value);
+        var angka2 = parseFloat(document.getElementById("input2").value);
+        if (angka2 !== 0) {
+          var hasil = angka1 / angka2;
+          document.getElementById("hasil").textContent = hasil;
+        } else {
+          document.getElementById("hasil").textContent =
+            "Tidak bisa dibagi oleh 0";
+        }
+      }
+    </script>
+  </body>
+</html>
