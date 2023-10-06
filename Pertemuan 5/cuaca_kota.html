@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prakiraan Cuaca</title>
+  </head>
+  <body>
+    <h1>Prakiraan Cuaca</h1>
+    <label for="city">Masukkan Nama Kota:</label>
+    <input type="text" id="city" placeholder="Contoh: Surabaya" />
+    <button id="get-weather">Dapatkan Cuaca</button>
+    <div id="weather-info"></div>
+
+    <script>
+      const apiKey = "37f6b07690a975efab16ba4821dcd9e5";
+
+      document
+        .getElementById("get-weather")
+        .addEventListener("click", function () {
+          const cityName = document.getElementById("city").value;
+          const weatherInfo = document.getElementById("weather-info");
+
+          const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+
+          fetch(apiUrl)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Gagal mengambil data cuaca");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              const temperature = (data.main.temp - 273.15).toFixed(2);
+              weatherInfo.innerHTML = `<h2>Cuaca di ${cityName}</h2>
+                                <p>Suhu: ${temperature}°C</p>
+                                <p>Deskripsi: ${data.weather[0].description}</p>`;
+            })
+            .catch((error) => {
+              console.error(error.message);
+            });
+        });
+    </script>
+  </body>
+</html>
