@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kalkulator Vue.js dengan Tombol 0-9</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Kalkulator Sederhana</h1>
+      <input v-model="angka1" type="number" placeholder="Masukkan Angka 1" />
+      <input v-model="angka2" type="number" placeholder="Masukkan Angka 2" />
+      <button @click="tambah">+</button>
+      <button @click="kurang">-</button>
+      <button @click="kali">*</button>
+      <button @click="bagi">/</button>
+      <div>
+        <button @click="tambahAngka(0)">0</button>
+        <button @click="tambahAngka(1)">1</button>
+        <button @click="tambahAngka(2)">2</button>
+        <button @click="tambahAngka(3)">3</button>
+        <button @click="tambahAngka(4)">4</button>
+        <button @click="tambahAngka(5)">5</button>
+        <button @click="tambahAngka(6)">6</button>
+        <button @click="tambahAngka(7)">7</button>
+        <button @click="tambahAngka(8)">8</button>
+        <button @click="tambahAngka(9)">9</button>
+      </div>
+      <p>Hasil: {{ hasil }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          angka1: 0,
+          angka2: 0,
+          hasil: 0,
+        },
+        methods: {
+          tambah() {
+            this.hasil = this.angka1 + this.angka2;
+          },
+          kurang() {
+            this.hasil = this.angka1 - this.angka2;
+          },
+          kali() {
+            this.hasil = this.angka1 * this.angka2;
+          },
+          bagi() {
+            if (this.angka2 !== 0) {
+              this.hasil = this.angka1 / this.angka2;
+            } else {
+              alert("Tidak bisa membagi dengan nol.");
+            }
+          },
+          tambahAngka(angka) {
+            if (this.angka1 === 0) {
+              this.angka1 = angka;
+            } else if (this.angka2 === 0) {
+              this.angka2 = angka;
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

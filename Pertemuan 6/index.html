@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kalkulator Sederhana dengan Vue.js 3</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Kalkulator Sederhana</h1>
+      <input v-model="angka1" type="number" placeholder="Masukkan Angka" />
+      <input v-model="angka2" type="number" placeholder="Masukkan Angka" />
+      <button @click="tambah">+</button>
+      <button @click="kurang">-</button>
+      <button @click="kali">*</button>
+      <button @click="bagi">/</button>
+      <p>Hasil: {{ hasil }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            angka1: "",
+            angka2: "",
+            hasil: "",
+          };
+        },
+        methods: {
+          tambah() {
+            this.hasil = this.angka1 + this.angka2;
+          },
+          kurang() {
+            this.hasil = this.angka1 - this.angka2;
+          },
+          kali() {
+            this.hasil = this.angka1 * this.angka2;
+          },
+          bagi() {
+            if (this.angka2 !== 0) {
+              this.hasil = this.angka1 / this.angka2;
+            } else {
+              alert("Tidak dapat membagi dengan angka 0");
+            }
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
