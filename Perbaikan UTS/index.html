@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>PERBAIKAN PWEB ETS</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-4"
+        id="pokemon_card"
+      ></div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      fetch("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("ERROR RESPONSE");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const cardContainer = document.getElementById("pokemon_card");
+          data.results.forEach((pokemon) => {
+            const card = document.createElement("div");
+            card.className = "col-xl-3 col-md-3 mb-4 col-6";
+            card.innerHTML = `
+                <div class="card border-left-primary shadow h-100 py-2" style="border: 1px solid blue;">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5 class="card-title" style="padding-bottom: 5px;">${pokemon.name}</h5>
+                            <a href="${pokemon.url}" class="btn btn-primary" target="_blank">Details</a>
+                        </div>
+                    </div>
+                </div>
+                `;
+            cardContainer.appendChild(card);
+          });
+        })
+        .catch((error) => {
+          console.error("Salah fetch Pokemon:", error);
+        });
+    </script>
+  </body>
+</html>
